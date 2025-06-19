@@ -1,0 +1,37 @@
+### Get all coffees
+GET http://localhost:3001/coffees
+Accept: application/json
+
+###
+
+### Create a new coffee
+POST http://localhost:3001/coffees
+Content-Type: application/json
+
+{
+  "name": "Expresso2",
+  "description": "A coffee drink with milk foam with Robusta type.",
+  "imageUrl": "https://example.com/cappuccino.jpg",
+  "typeId": "328239fa-a4db-44b7-9c46-5d03ced2ec19",
+  "price": 3.75
+}
+
+###
+
+### Try to create a duplicate coffee (should return 400)
+POST http://localhost:3001/coffees
+Content-Type: application/json
+
+{
+  "name": "Cappuccino",
+  "description": "Duplicate test",
+  "imageUrl": "https://example.com/duplicate.jpg",
+  "typeId": "REPLACE_WITH_VALID_TYPE_ID",
+  "price": 4.00
+}
+
+###
+
+### Get all coffee types (for the form dropdown)
+GET http://localhost:3001/coffees/types
+Accept: application/json
